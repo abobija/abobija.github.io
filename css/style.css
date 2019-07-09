@@ -76,7 +76,7 @@ h6 {
  * LINK STYLE
  *------------------------------------------*/
 a {
-    color              : #ff5722;
+    color              : #009e06;
     text-decoration    : none;
     -webkit-transition : all 0.3s ease 0s;
     -moz-transition    : all 0.3s ease 0s;
@@ -95,7 +95,7 @@ a:active {
 a:hover,
 a:focus {
     text-decoration : none;
-    color           : #ff5722;
+    color           : #009e06;
     }
 
 p {
@@ -223,7 +223,7 @@ button:focus,
     padding    : 50px 0;
     margin     : 0;
     position   : relative;
-    border-top : 5px solid #ff5722;
+    border-top : 5px solid #009e06;
     }
 
 .header .profile-img {
@@ -242,7 +242,7 @@ button:focus,
 
 .header .name-wrapper span {
     font-size : 24px;
-    color     : #ff5722;
+    color     : #009e06;
     }
 
 .header .personal-details {
@@ -370,7 +370,7 @@ button:focus,
     }
 
 .progress-item .progress-bar {
-    background-color : #ff5722;
+    background-color : #009e06;
     box-shadow       : none;
     text-align       : right;
     }
