@@ -312,6 +312,25 @@ button:focus,
     border-color : #cccccc;
     }
 
+.social-icon .fab.fa-linkedin {
+    color: #2c71ca;
+}
+
+.social-icon .fab.fa-youtube {
+    color: red;
+}
+
+.social-icon .fab.fa-gitlab {
+    color: #e85800;
+}
+
+.social-icon .fab.fa-npm {
+    color: #d82121;
+}
+
+.social-icon .fab.fa-hackerrank {
+    color: #009e06;
+}
 
 /*-------------------
  * Expertise
