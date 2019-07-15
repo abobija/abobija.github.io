@@ -21,8 +21,8 @@
 
 body {
     font-family : 'Hind', sans-serif;
-    font-size   : 15px;
-    line-height : 1.8em;
+    font-size   : 20px;
+    line-height : 1.6em;
     color       : #6f6f6f;
     font-weight : 300;
     background  : #f8f8f8;
@@ -50,13 +50,13 @@ h2 {
     }
 
 h3 {
-    font-size   : 13px;
+    font-size   : 18px;
     line-height : 1.8em;
     font-weight : 700;
     }
 
 h4 {
-    font-size   : 15px;
+    font-size   : 17px;
     line-height : 1.8em;
     font-weight : 500;
     }
@@ -199,7 +199,7 @@ button:focus,
     }
 
 .section-title h2 {
-    font-size      : 14px;
+    font-size      : 16px;
     margin-bottom  : 5px;
     color          : #bbbbbb;
     text-transform : uppercase;
@@ -250,14 +250,14 @@ button:focus,
     }
 
 .header .personal-details strong {
-    font-size   : 13px;
+    font-size   : 15px;
     color       : #444444;
     display     : block;
     line-height : 1;
     }
 
 .header .personal-details small {
-    font-size : 12px;
+    font-size : 14px;
     }
 
 .header .personal-details span {
@@ -375,7 +375,7 @@ button:focus,
     }
 
 .progress-item .progress-title {
-    font-size     : 12px;
+    font-size     : 15px;
     font-weight   : 400;
     display       : inline-block;
     margin-bottom : 5px;
@@ -395,11 +395,11 @@ button:focus,
     }
 
 .progress-item .progress-percent {
-    font-size        : 10px;
+    font-size        : 12px;
     background-color : #313131;
     position         : absolute;
     top              : 5px;
-    padding          : 0 8px;
+    padding          : 2px 8px;
     border-radius    : 3px;
     }
 
@@ -694,7 +694,7 @@ button:focus,
  *-------------------*/
 
 .section-contact address strong {
-    font-size      : 13px;
+    font-size      : 15px;
     text-transform : uppercase;
     }
 
