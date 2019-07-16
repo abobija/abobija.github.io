@@ -332,6 +332,10 @@ button:focus,
     color: #009e06;
 }
 
+.social-icon .fab.fa-docker {
+    color: #0e5696;
+}
+
 /*-------------------
  * Expertise
  *-------------------*/
