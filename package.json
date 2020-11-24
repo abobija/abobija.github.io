@@ -1,0 +1,25 @@
+{
+  "name": "abobija.github.io",
+  "version": "1.0.0",
+  "description": "Alija Bobija's website",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abobija/abobija.github.io.git"
+  },
+  "keywords": [
+    "Alija",
+    "Bobija",
+    "abobija"
+  ],
+  "author": "Alija Bobija",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abobija/abobija.github.io/issues"
+  },
+  "homepage": "https://github.com/abobija/abobija.github.io#readme"
+}
