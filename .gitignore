@@ -1,1 +1,4 @@
 node_modules
+
+# build folder should be unignored later
+/build
