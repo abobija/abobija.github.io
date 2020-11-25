@@ -22,7 +22,7 @@ const envp = (_env, cb) => _env == env.env ? cb : noop();
 const envt = (_env, t) => cb => _env == env.env ? series(t)(cb) : cb();
 
 function clean() {
-    return src('build', { read: false, allowEmpty: true })
+    return src(OUT_DIR, { read: false, allowEmpty: true })
         .pipe(require('gulp-clean')());
 }
 
