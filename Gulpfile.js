@@ -62,7 +62,7 @@ function mergeAndMinifyCss() {
 function serve() {
     browserSync.init({
         server: {
-            baseDir: './build'
+            baseDir: `./${outDir}`
         }
     });
 
