@@ -17,10 +17,6 @@ const envp = (_env, cb) => _env == env.env ? cb : noop();
 // Environment conditional task
 const envt = (_env, t) => cb => _env == env.env ? series(t)(cb) : cb();
 
-const htmlPath = 'src/*.html';
-const jsPath = 'src/**/*.js';
-const cssPath = 'src/**/*.css';
-
 function clean() {
     return src('build', { read: false })
         .pipe(require('gulp-clean')());
@@ -33,13 +29,15 @@ function compressImgs() {
 }
 
 function minifyHtml() {
-    return src(htmlPath)
+    return src('src/*.html')
         .pipe(require('gulp-htmlmin')({ collapseWhitespace: true }))
         .pipe(dest(outDir));
 }
 
 function mergeAndMinifyJs() {
-    return src(jsPath)
+    return src([
+            'src/js/**/*.js'
+        ])
         .pipe(envp(DEV, sourcemaps.init()))
             .pipe(concat('script.js'))
             .pipe(terser())
@@ -48,7 +46,9 @@ function mergeAndMinifyJs() {
 }
 
 function mergeAndMinifyCss() {
-    return src(cssPath)
+    return src([
+            'src/css/**/*.css'
+        ])
         .pipe(envp(DEV, sourcemaps.init()))
             .pipe(concat('style.css'))
             .pipe(require('gulp-postcss')([
@@ -63,14 +63,15 @@ function serve() {
     browserSync.init({
         server: {
             baseDir: `./${outDir}`
-        }
+        },
+        notify: false
     });
-
+    
     gulp
     .watch([
-        htmlPath,
-        jsPath,
-        cssPath
+        'src/**/*.html',
+        'src/**/*.js',
+        'src/**/*.css'
     ], { interval: 1000 } , parallel(
         minifyHtml,
         mergeAndMinifyJs,

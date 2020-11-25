@@ -1,3 +1,73 @@
-body {
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap');
+
+html {
+    min-height: 100%;
 }
+
+body {
+    background-image: repeating-linear-gradient(0deg, rgba(166, 166, 166, 0.08) 0px, rgba(166, 166, 166, 0.08) 1px, transparent 1px, transparent 11px), repeating-linear-gradient(90deg, rgba(166, 166, 166, 0.08) 0px, rgba(166, 166, 166, 0.08) 1px, transparent 1px, transparent 11px), linear-gradient(90deg, #141414, #141414);
+    color: white;
+    font-family: 'IBM Plex Sans', sans-serif !important;
+    font-size: 30pt;
+    font-weight: 300;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+a { 
+    text-decoration: none;
+    color: rgb(0, 146, 231);
+}
+
+.hello {
+    margin: 40pt;
+}
+
+.regards {
+    font-size: 70%;
+}
+
+.r-link {
+	--uirLinkDisplay: var(--rLinkDisplay, inline-block);
+	--uirLinkTextColor: var(--rLinkTextColor);
+	--uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+
+	display: var(--uirLinkDisplay) !important;
+	color: var(--uirLinkTextColor) !important;
+    text-decoration: var(--uirLinkTextDecoration) !important;
+    
+    --uiAnimatedUnderlineWidth: var(--animatedUnderlineWidth, 100%);
+	--uiAnimatedUnderlineHeight: var(--animatedUnderlineHeight, 2px);
+	--uiAnimatedUnderlineBgColor: var(--animatedUnderlineBgColor, currentColor);
+	--uiAnimatedUnderlinePositionX: var(--animatedUnderlinePositionX, left);
+	--uiAnimatedUnderlinePositionY: var(--animatedUnderlinePositionY, bottom);
+
+	--rLinkDisplay: inline;
+
+	background-image: linear-gradient(0, var(--uiAnimatedUnderlineBgColor) 0, var(--uiAnimatedUnderlineBgColor));
+	background-size: var(--uiAnimatedUnderlineWidth) var(--uiAnimatedUnderlineHeight);
+	background-position: var(--uiAnimatedUnderlinePositionX) var(--uiAnimatedUnderlinePositionY);
+	background-repeat: no-repeat;
+	
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+	
+	will-change: background-size;
+    transition: background-size .25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    
+    --animatedUnderlineWidth: 100%;
+}
+
+.r-link:hover {
+	--animatedUnderlineHeight: 100%;
+}
+
+:root {
+	--accentColor: #075a2c;
+	--blackColor: #222;
+    --rLinkTextColor: #fff;
+    --animatedUnderlineHeight: 1rem;
+	--animatedUnderlineBgColor: var(--accentColor);
+}	
