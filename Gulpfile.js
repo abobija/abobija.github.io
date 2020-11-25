@@ -5,6 +5,7 @@ const imagemin = require('gulp-imagemin');
 const concat = require('gulp-concat');
 const terser = require('gulp-terser');
 const sourcemaps = require('gulp-sourcemaps');
+const browserSync = require('browser-sync').create();
 
 const DEV = 'dev';
 const PROD = 'prod';
@@ -58,15 +59,23 @@ function mergeAndMinifyCss() {
         .pipe(dest(outDir));
 }
 
-function watch() {
-    gulp.watch([
+function serve() {
+    browserSync.init({
+        server: {
+            baseDir: './build'
+        }
+    });
+
+    gulp
+    .watch([
         htmlPath,
         jsPath,
         cssPath
-    ], { interval: 1000 }, parallel(
+    ], { interval: 1000 } , parallel(
         minifyHtml,
         mergeAndMinifyJs,
-        mergeAndMinifyCss
+        mergeAndMinifyCss,
+        done => { browserSync.reload(); done(); }
     ));
 }
 
@@ -78,5 +87,5 @@ exports.default = series(
         mergeAndMinifyJs,
         mergeAndMinifyCss
     ),
-    envt(DEV, watch)
+    envt(DEV, serve)
 );

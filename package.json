@@ -26,6 +26,7 @@
   "homepage": "https://github.com/abobija/abobija.github.io#readme",
   "devDependencies": {
     "autoprefixer": "^10.0.2",
+    "browser-sync": "^2.26.13",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
