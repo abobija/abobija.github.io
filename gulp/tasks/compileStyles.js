@@ -9,6 +9,7 @@ const cssnano = require('cssnano');
 
 module.exports = function compileStyles() {
     return gulp.src([
+            'node_modules/milligram/dist/milligram.min.css',
             'src/styles/**/*.scss'
         ])
         .pipe(envp(DEV, sourcemaps.init()))
