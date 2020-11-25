@@ -18,4 +18,4 @@ exports.sassCompiler = function (outFileName, sassOpts) {
 
         cb(null, css);
     });
-}
+};
