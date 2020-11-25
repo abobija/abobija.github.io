@@ -1,15 +1,18 @@
 const { env, noop } = require('gulp-util');
 const gulp = require('gulp');
 const { src, dest, parallel, series } = require('gulp');
-const imagemin = require('gulp-imagemin');
 const concat = require('gulp-concat');
-const terser = require('gulp-terser');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
+const browserify = require('browserify');
+const tsify = require('tsify');
+const vinyl = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const uglify = require('gulp-uglify');
 
 const DEV = 'dev';
 const PROD = 'prod';
-const outDir = 'build';
+const OUT_DIR = 'build';
 
 // Environment conditional pipe
 const envp = (_env, cb) => _env == env.env ? cb : noop();
@@ -18,34 +21,41 @@ const envp = (_env, cb) => _env == env.env ? cb : noop();
 const envt = (_env, t) => cb => _env == env.env ? series(t)(cb) : cb();
 
 function clean() {
-    return src('build', { read: false })
+    return src('build', { read: false, allowEmpty: true })
         .pipe(require('gulp-clean')());
 }
 
-function compressImgs() {
+function compressImages() {
     return src('src/images/*')
-        .pipe(imagemin())
-        .pipe(dest(`${outDir}/img`));
+        .pipe(require('gulp-imagemin')())
+        .pipe(dest(`${OUT_DIR}/img`));
 }
 
-function minifyHtml() {
+function compilePages() {
     return src('src/*.html')
         .pipe(require('gulp-htmlmin')({ collapseWhitespace: true }))
-        .pipe(dest(outDir));
+        .pipe(dest(OUT_DIR));
 }
 
-function mergeAndMinifyJs() {
-    return src([
-            'src/js/**/*.js'
-        ])
-        .pipe(envp(DEV, sourcemaps.init()))
-            .pipe(concat('script.js'))
-            .pipe(terser())
-        .pipe(envp(DEV, sourcemaps.write('.')))
-        .pipe(dest(outDir));
+function compileScripts() {
+    return browserify({
+        basedir: '.',
+        debug: false,
+        entries: [ 'src/scripts/main.ts' ],
+        cache: {},
+        packageCache: {}
+    })
+    .plugin(tsify)
+    .bundle()
+    .pipe(vinyl('script.js'))
+    .pipe(buffer())
+    .pipe(envp(DEV, sourcemaps.init()))
+    .pipe(envp(PROD, uglify()))
+    .pipe(envp(DEV, sourcemaps.write('.')))
+    .pipe(dest(OUT_DIR));
 }
 
-function mergeAndMinifyCss() {
+function compileStyles() {
     return src([
             'src/css/**/*.css'
         ])
@@ -56,26 +66,28 @@ function mergeAndMinifyCss() {
                 require('cssnano')
             ]))
         .pipe(envp(DEV, sourcemaps.write('.')))
-        .pipe(dest(outDir));
+        .pipe(dest(OUT_DIR));
 }
 
 function serve() {
     browserSync.init({
         server: {
-            baseDir: `./${outDir}`
+            baseDir: `./${OUT_DIR}`
         },
         notify: false
     });
-    
+
     gulp
     .watch([
         'src/**/*.html',
-        'src/**/*.js',
+        'src/**/*.ts',
         'src/**/*.css'
-    ], { interval: 1000 } , parallel(
-        minifyHtml,
-        mergeAndMinifyJs,
-        mergeAndMinifyCss,
+    ], { interval: 1000 } , series(
+        parallel(
+            compilePages,
+            compileScripts,
+            compileStyles
+        ),
         done => { browserSync.reload(); done(); }
     ));
 }
@@ -83,10 +95,10 @@ function serve() {
 exports.default = series(
     envt(PROD, clean),
     parallel(
-        minifyHtml,
-        compressImgs,
-        mergeAndMinifyJs,
-        mergeAndMinifyCss
+        compilePages,
+        compressImages,
+        compileScripts,
+        compileStyles
     ),
     envt(DEV, serve)
 );
