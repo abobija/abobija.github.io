@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap');
 
+$textColor: white;
+$fontFamily: 'IBM Plex Sans', sans-serif;
+$fontSize: 30pt;
+
 html {
     min-height: 100%;
 }
 
 body {
     background-image: repeating-linear-gradient(0deg, rgba(166, 166, 166, 0.08) 0px, rgba(166, 166, 166, 0.08) 1px, transparent 1px, transparent 11px), repeating-linear-gradient(90deg, rgba(166, 166, 166, 0.08) 0px, rgba(166, 166, 166, 0.08) 1px, transparent 1px, transparent 11px), linear-gradient(90deg, #141414, #141414);
-    color: white;
-    font-family: 'IBM Plex Sans', sans-serif !important;
-    font-size: 30pt;
+    color: $textColor;
+    font-family: $fontFamily;
+    font-size: $fontSize;
     font-weight: 300;
 }
 

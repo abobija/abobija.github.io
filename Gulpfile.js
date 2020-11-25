@@ -9,6 +9,7 @@ const tsify = require('tsify');
 const vinyl = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const uglify = require('gulp-uglify');
+const { sassCompiler } = require('./gulp/extensions');
 
 const DEV = 'dev';
 const PROD = 'prod';
@@ -57,10 +58,11 @@ function compileScripts() {
 
 function compileStyles() {
     return src([
-            'src/css/**/*.css'
+            'src/styles/**/*.scss'
         ])
         .pipe(envp(DEV, sourcemaps.init()))
-            .pipe(concat('style.css'))
+            .pipe(concat('style.scss'))
+            .pipe(sassCompiler())
             .pipe(require('gulp-postcss')([
                 require('autoprefixer'),
                 require('cssnano')
@@ -69,7 +71,7 @@ function compileStyles() {
         .pipe(dest(OUT_DIR));
 }
 
-function serve() {
+function serve(done) {
     browserSync.init({
         server: {
             baseDir: `./${OUT_DIR}`
@@ -77,19 +79,23 @@ function serve() {
         notify: false
     });
 
-    gulp
-    .watch([
-        'src/**/*.html',
-        'src/**/*.ts',
-        'src/**/*.css'
-    ], { interval: 1000 } , series(
-        parallel(
-            compilePages,
-            compileScripts,
-            compileStyles
-        ),
-        done => { browserSync.reload(); done(); }
-    ));
+    function reloadBrowser(done) {
+        browserSync.reload();
+        done();
+    }
+
+    const watcher = (pathPattern, task) => {
+        gulp.watch([ pathPattern ], { interval: 1000 }, series(
+            task,
+            reloadBrowser
+        ));
+    };
+
+    watcher('src/**/*.html', compilePages);
+    watcher('src/**/*.ts', compileScripts);
+    watcher('src/**/*.scss', compileStyles);
+
+    done();
 }
 
 exports.default = series(
