@@ -4,7 +4,7 @@ const { env, noop } = require('gulp-util');
 module.exports = {
     DEV: 'dev',
     PROD: 'prod',
-    OUT_DIR: 'docs',
+    OUT_DIR: 'build',
     // Environment conditional pipe
     envp: (_env, cb) => _env == env.env ? cb : noop(),
     // Environment conditional task
