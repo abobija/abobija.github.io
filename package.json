@@ -5,13 +5,12 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "gulp clean",
     "build": "gulp build --env prod",
     "build:dev": "gulp build --env dev",
     "serve": "gulp build && gulp serve",
     "serve:dev": "gulp build --env dev && gulp serve",
     "start": "npm run serve:dev",
-    "publish": "gulp publish"
+    "publish": "gulp build && gulp publish"
   },
   "repository": {
     "type": "git",
@@ -45,6 +44,7 @@
     "gulp-postcss": "^9.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
+    "gulplog": "^1.0.0",
     "minimist": "^1.2.5",
     "postcss": "^8.1.10",
     "sass": "^1.29.0",

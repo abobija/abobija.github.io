@@ -1,6 +1,6 @@
 const { parallel, series } = require('gulp');
 const cloneGhPages = require('./gulp/tasks/cloneGhPages');
-const clean = require('./gulp/tasks/clean');
+const generateGitIgnore = require('./gulp/tasks/generateGitIgnore');
 const generateCname = require('./gulp/tasks/generateCname');
 const compressImages = require('./gulp/tasks/compressImages');
 const compilePages = require('./gulp/tasks/compilePages');
@@ -10,14 +10,10 @@ const copyFontAwesome = require('./gulp/tasks/copyFontAwesome');
 const serve = require('./gulp/tasks/serve');
 const publish = require('./gulp/tasks/publish');
 
-exports.ghpages = cloneGhPages;
-
-exports.clean = clean;
-
 exports.build = series(
-    clean,
     cloneGhPages,
     parallel(
+        generateGitIgnore,
         generateCname,
         compilePages,
         compressImages,
