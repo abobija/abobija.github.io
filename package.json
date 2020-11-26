@@ -1,0 +1,54 @@
+{
+  "name": "abobija.github.io",
+  "version": "1.0.0",
+  "description": "Alija Bobija's website",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp --env dev",
+    "prod": "gulp --env prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abobija/abobija.github.io.git"
+  },
+  "keywords": [
+    "Alija",
+    "Bobija",
+    "abobija"
+  ],
+  "author": "Alija Bobija",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abobija/abobija.github.io/issues"
+  },
+  "homepage": "https://github.com/abobija/abobija.github.io#readme",
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "autoprefixer": "^10.0.2",
+    "bootstrap": "^4.5.3",
+    "browser-sync": "^2.26.13",
+    "browserify": "^17.0.0",
+    "cssnano": "^4.1.10",
+    "extend-object": "^1.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "postcss": "^8.1.10",
+    "sass": "^1.29.0",
+    "through2": "^4.0.2",
+    "tsify": "^5.0.2",
+    "typescript": "^4.1.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {}
+}

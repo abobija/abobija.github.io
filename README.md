@@ -1,2 +1,16 @@
 # [abobija.com](https://abobija.com)
-my website
+
+Installation
+```
+npm i
+```
+
+Development
+```
+npm run dev
+```
+
+Production
+```
+npm run prod
+```
