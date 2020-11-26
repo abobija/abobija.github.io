@@ -1,6 +1,6 @@
 const { OUT_DIR, DEV, envp } = require('./../constants');
 const gulp = require('gulp');
-const concat = require('gulp-concat');
+/*const concat = require('gulp-concat');*/
 const { sassCompiler } = require('./../extensions');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
@@ -12,7 +12,7 @@ module.exports = function compileStyles() {
             'src/styles/**/*.scss'
         ])
         .pipe(envp(DEV, sourcemaps.init()))
-            .pipe(concat('style.scss'))
+            /*.pipe(concat('style.scss'))*/
             .pipe(sassCompiler())
             .pipe(postcss([ autoprefixer, cssnano ]))
         .pipe(envp(DEV, sourcemaps.write('.')))
