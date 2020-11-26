@@ -8,6 +8,7 @@ const compileScripts = require('./gulp/tasks/compileScripts');
 const compileStyles = require('./gulp/tasks/compileStyles');
 const copyFontAwesome = require('./gulp/tasks/copyFontAwesome');
 const serve = require('./gulp/tasks/serve');
+const publish = require('./gulp/tasks/publish');
 
 exports.ghpages = cloneGhPages;
 
@@ -27,5 +28,7 @@ exports.build = series(
 );
 
 exports.serve = serve;
+
+exports.publish = publish;
 
 exports.default = exports.build;

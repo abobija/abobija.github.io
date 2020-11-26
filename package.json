@@ -10,7 +10,8 @@
     "build:dev": "gulp build --env dev",
     "serve": "gulp build && gulp serve",
     "serve:dev": "gulp build --env dev && gulp serve",
-    "start": "npm run serve:dev"
+    "start": "npm run serve:dev",
+    "publish": "gulp publish"
   },
   "repository": {
     "type": "git",
