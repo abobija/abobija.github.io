@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const { env, noop } = require('gulp-util');
+const { noop, env } = require('./extensions');
 
 module.exports = {
     DEV: 'dev',
