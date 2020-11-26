@@ -1,5 +1,7 @@
 # [abobija.com](https://abobija.com)
 
+![License](https://img.shields.io/github/license/abobija/abobija.github.io?style=flat-square)
+
 My website.
 
 ## Installation
@@ -17,3 +19,11 @@ npm install
 | `npm run build:dev` | Build for development |
 | `npm run build` | Build for production |
 | `npm publish` | Publish |
+
+## Author
+
+[abobija](https://github.com/abobija) - [abobija.com](https://abobija.com)
+
+## License
+
+[MIT](LICENSE)
