@@ -1,4 +1,5 @@
 const { parallel } = require('gulp');
+const cloneGhPages = require('./gulp/tasks/cloneGhPages');
 const clean = require('./gulp/tasks/clean');
 const generateCname = require('./gulp/tasks/generateCname');
 const compressImages = require('./gulp/tasks/compressImages');
@@ -7,6 +8,8 @@ const compileScripts = require('./gulp/tasks/compileScripts');
 const compileStyles = require('./gulp/tasks/compileStyles');
 const copyFontAwesome = require('./gulp/tasks/copyFontAwesome');
 const serve = require('./gulp/tasks/serve');
+
+exports.ghpages = cloneGhPages;
 
 exports.clean = clean;
 

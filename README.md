@@ -1,19 +1,19 @@
 # [abobija.com](https://abobija.com)
 
-Installation
+My website.
+
+## Installation
 ```sh
 npm i
 ```
 
-Development
-```sh
-npm run build:dev
+## Usage
 
-# Or
-npm run build:dev:serve
-```
-
-Production
-```sh
-npm run build
-```
+| Command  | Description |
+| ------------- | ------------- |
+| `npm run start` | Same as `npm run serve:dev` |
+| `npm run serve:dev` | Run development server with hot reload |
+| `npm run serve` | Run production server with hot reload |
+| `npm run build:dev` | Build for development |
+| `npm run build` | Build for production |
+| `npm run clean` | Clean output directory |
