@@ -10,7 +10,8 @@
     "build:dev": "gulp ghpages && gulp build --env dev",
     "serve": "npm run build && gulp serve",
     "serve:dev": "npm run build:dev && gulp serve",
-    "start": "npm run serve:dev"
+    "start": "npm run serve:dev",
+    "publish": "npm run build && gulp publish"
   },
   "repository": {
     "type": "git",
