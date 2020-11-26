@@ -1,6 +1,7 @@
 const { parallel, series } = require('gulp');
 const { DEV, PROD, envt } = require('./gulp/constants');
 const clean = require('./gulp/tasks/clean');
+const generateCname = require('./gulp/tasks/generateCname');
 const compressImages = require('./gulp/tasks/compressImages');
 const compilePages = require('./gulp/tasks/compilePages');
 const compileScripts = require('./gulp/tasks/compileScripts');
@@ -11,6 +12,7 @@ const serve = require('./gulp/tasks/serve');
 exports.default = series(
     envt(PROD, clean),
     parallel(
+        generateCname,
         compilePages,
         compressImages,
         copyFontAwesome,
