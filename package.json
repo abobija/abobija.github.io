@@ -6,8 +6,11 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp --env dev",
-    "prod": "gulp --env prod"
+    "clean": "gulp clean",
+    "build": "gulp clean && gulp build --env prod",
+    "build:dev": "gulp build --env dev",
+    "serve": "gulp serve",
+    "build:dev:serve": "npm run build:dev && npm run serve"
   },
   "repository": {
     "type": "git",

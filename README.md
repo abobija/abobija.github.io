@@ -1,16 +1,19 @@
 # [abobija.com](https://abobija.com)
 
 Installation
-```
+```sh
 npm i
 ```
 
 Development
-```
-npm run dev
+```sh
+npm run build:dev
+
+# Or
+npm run build:dev:serve
 ```
 
 Production
-```
-npm run prod
+```sh
+npm run build
 ```

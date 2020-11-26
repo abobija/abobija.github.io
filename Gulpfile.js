@@ -1,5 +1,4 @@
-const { parallel, series } = require('gulp');
-const { DEV, PROD, envt } = require('./gulp/constants');
+const { parallel } = require('gulp');
 const clean = require('./gulp/tasks/clean');
 const generateCname = require('./gulp/tasks/generateCname');
 const compressImages = require('./gulp/tasks/compressImages');
@@ -9,15 +8,17 @@ const compileStyles = require('./gulp/tasks/compileStyles');
 const copyFontAwesome = require('./gulp/tasks/copyFontAwesome');
 const serve = require('./gulp/tasks/serve');
 
-exports.default = series(
-    envt(PROD, clean),
-    parallel(
-        generateCname,
-        compilePages,
-        compressImages,
-        copyFontAwesome,
-        compileScripts,
-        compileStyles
-    ),
-    envt(DEV, serve)
+exports.clean = clean;
+
+exports.build = parallel(
+    generateCname,
+    compilePages,
+    compressImages,
+    copyFontAwesome,
+    compileScripts,
+    compileStyles
 );
+
+exports.serve = serve;
+
+exports.default = exports.build;
