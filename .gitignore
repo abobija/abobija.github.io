@@ -1,5 +1,2 @@
 node_modules
 *.map
-
-# build folder should be unignored later
-/build
