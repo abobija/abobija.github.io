@@ -1,4 +1,4 @@
-const { parallel } = require('gulp');
+const { parallel, series } = require('gulp');
 const cloneGhPages = require('./gulp/tasks/cloneGhPages');
 const clean = require('./gulp/tasks/clean');
 const generateCname = require('./gulp/tasks/generateCname');
@@ -13,13 +13,17 @@ exports.ghpages = cloneGhPages;
 
 exports.clean = clean;
 
-exports.build = parallel(
-    generateCname,
-    compilePages,
-    compressImages,
-    copyFontAwesome,
-    compileScripts,
-    compileStyles
+exports.build = series(
+    clean,
+    cloneGhPages,
+    parallel(
+        generateCname,
+        compilePages,
+        compressImages,
+        copyFontAwesome,
+        compileScripts,
+        compileStyles
+    )
 );
 
 exports.serve = serve;

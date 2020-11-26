@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "gulp clean",
-    "build": "gulp ghpages && gulp clean && gulp build --env prod",
-    "build:dev": "gulp ghpages && gulp build --env dev",
-    "serve": "npm run build && gulp serve",
-    "serve:dev": "npm run build:dev && gulp serve",
+    "build": "gulp build --env prod",
+    "build:dev": "gulp build --env dev",
+    "serve": "gulp build && gulp serve",
+    "serve:dev": "gulp build --env dev && gulp serve",
     "start": "npm run serve:dev"
   },
   "repository": {
