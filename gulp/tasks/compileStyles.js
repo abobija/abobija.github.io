@@ -9,7 +9,6 @@ const cssnano = require('cssnano');
 
 module.exports = function compileStyles() {
     return gulp.src([
-            'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'src/styles/**/*.scss'
         ])
         .pipe(envp(DEV, sourcemaps.init()))
@@ -17,5 +16,5 @@ module.exports = function compileStyles() {
             .pipe(sassCompiler())
             .pipe(postcss([ autoprefixer, cssnano ]))
         .pipe(envp(DEV, sourcemaps.write('.')))
-        .pipe(gulp.dest(OUT_DIR));
+        .pipe(gulp.dest(`${OUT_DIR}/css`));
 };

@@ -1,1 +1,4 @@
-document.getElementById('caddr').innerHTML = atob('YWJvYmlqYXhAZ21haWwuY29t');
+document.getElementById('email').setAttribute(
+    'href',
+    `mailto:${atob('YWJvYmlqYXhAZ21haWwuY29t')}`
+);

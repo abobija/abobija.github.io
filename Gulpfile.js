@@ -5,6 +5,7 @@ const compressImages = require('./gulp/tasks/compressImages');
 const compilePages = require('./gulp/tasks/compilePages');
 const compileScripts = require('./gulp/tasks/compileScripts');
 const compileStyles = require('./gulp/tasks/compileStyles');
+const copyFontAwesome = require('./gulp/tasks/copyFontAwesome');
 const serve = require('./gulp/tasks/serve');
 
 exports.default = series(
@@ -12,6 +13,7 @@ exports.default = series(
     parallel(
         compilePages,
         compressImages,
+        copyFontAwesome,
         compileScripts,
         compileStyles
     ),

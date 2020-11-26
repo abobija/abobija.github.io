@@ -22,5 +22,5 @@ module.exports = function compileScripts() {
     .pipe(envp(DEV, sourcemaps.init()))
     .pipe(envp(PROD, uglify()))
     .pipe(envp(DEV, sourcemaps.write('.')))
-    .pipe(gulp.dest(OUT_DIR));
+    .pipe(gulp.dest(`${OUT_DIR}/js`));
 };
