@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-
 $body-color: white;
 
 $theme-colors: (
-  "primary": #0b9cf1
+  "primary": #ffc107,
+  "secondary": #c3c3c3
 );
 
 @import 'node_modules/bootstrap/scss/bootstrap';
@@ -11,20 +10,14 @@ $theme-colors: (
 @import 'node_modules/@fortawesome/fontawesome-free/scss/solid';
 @import 'node_modules/@fortawesome/fontawesome-free/scss/brands';
 
-.handwriting {
-	font-family: 'Sacramento', cursive, 'Times New Roman';
-}
-
 body {
 	background-image: repeating-linear-gradient(0deg, rgba(146, 66, 66, 0.08) 0px, rgba(166, 166, 166, 0.08) 1px, transparent 1px, transparent 11px), repeating-linear-gradient(90deg, rgba(166, 166, 166, 0.08) 0px, rgba(166, 166, 166, 0.08) 1px, transparent 1px, transparent 11px), linear-gradient(90deg, #141414, #141414);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.social {
-	font-size: 1.7rem;
-}
-
-.social a:hover {
-	opacity: 0.8;
+.bitmoji {
+	border-radius: 100%;
+	max-width: 230px;
 }
 
 .fa-youtube {

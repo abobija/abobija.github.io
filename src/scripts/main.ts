@@ -1,4 +1,4 @@
-document.getElementById('email').setAttribute(
-    'href',
-    `mailto:${atob('YWJvYmlqYXhAZ21haWwuY29t')}`
-);
+const mail = atob('YWJvYmlqYXhAZ21haWwuY29t');
+
+document.getElementById('email').setAttribute('href', `mailto:${mail}`);
+document.querySelector('.email').innerHTML = mail;
