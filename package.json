@@ -47,7 +47,7 @@
     "gulp-uglify": "^3.0.2",
     "gulplog": "^1.0.0",
     "minimist": "^1.2.5",
-    "postcss": "^8.1.10",
+    "postcss": "^8.2.10",
     "sass": "^1.29.0",
     "through2": "^4.0.2",
     "tsify": "^5.0.2",
